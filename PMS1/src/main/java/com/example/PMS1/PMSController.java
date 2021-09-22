@@ -1,6 +1,7 @@
 package com.example.PMS1;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,11 @@ public class PMSController {
 		
 	}
 
-	@GetMapping("/getpizza/{productName}")
-	public List<PMS> getPizzaByProductNamePath(@PathVariable String productName) 
+	@GetMapping("/getpizza/{productId}")
+	public Optional<PMS> getPizzaByProductNamePath(@PathVariable String productId) 
 	{
 		
-		return repository.findAllByProductName(productName);
-		
+		return repository.findById(productId);
 		
 	}
 
